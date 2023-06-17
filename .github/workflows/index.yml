@@ -1,0 +1,29 @@
+name: Scheduled Index
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  build-and-index:
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Set Timezone"
+        uses: "szenius/set-timezone@v1.2"
+        with:
+          timezoneLinux: "Asia/Singapore"
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+      - name: "Install Dependencies"
+        uses: mskelton/setup-yarn@v1
+        with:
+        node-version: "16.x"
+      - name: "Set Project ID"
+        run: "set PROJECT_ID=${{ secrets.PROJECT_ID }}"
+      - name: "Set Private KEY"
+        run: "set PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}"
+      - name: "Set Client Email"
+        run: "set CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }}"
+      - name: "Index"
+        run: "yarn tsc main.ts && node main.js"

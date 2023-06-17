@@ -1,0 +1,9 @@
+node_modules/
+main.js
+interfaces/FirestoreCard.js
+interfaces/ScryfallCard.js
+interfaces/ScryfallResponse.js
+toFirestoreCard.js
+firestore.js
+yarn-error.log
+.env
