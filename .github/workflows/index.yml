@@ -19,7 +19,7 @@ jobs:
       - name: "Install Dependencies"
         uses: mskelton/setup-yarn@v1
         with:
-        node-version: "16.x"
+          node-version: "16.x"
       - name: "Set Project ID"
         run: "set PROJECT_ID=${{ secrets.PROJECT_ID }}"
       - name: "Set Private KEY"
