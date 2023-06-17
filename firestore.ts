@@ -8,7 +8,9 @@ const serviceAccount = {
   //   type: process.env.TYPE,
   projectId: process.env.PROJECT_ID,
   //   privateKeyId: process.env.PRIVATE_KEY_ID,
-  privateKey: process.env.PRIVATE_KEY,
+  privateKey: process.env.PRIVATE_KEY
+    ? process.env.PRIVATE_KEY.replace(/\\n/gm, "\n")
+    : undefined,
   clientEmail: process.env.CLIENT_EMAIL,
   //   clientId: process.env.CLIENT_ID,
   //   authUri: process.env.AUTH_URI,
