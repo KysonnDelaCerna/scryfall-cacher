@@ -20,11 +20,11 @@ jobs:
         uses: mskelton/setup-yarn@v1
         with:
           node-version: "16.x"
-      - name: "Set Project ID"
-        run: "set PROJECT_ID=${{ secrets.PROJECT_ID }}"
-      - name: "Set Private KEY"
-        run: "set PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}"
-      - name: "Set Client Email"
-        run: "set CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }}"
+      - name: "Set Environment Variables"
+        run: |
+          touch .env
+          echo PROJECT_ID=${{ secrets.PROJECT_ID }} >> .env
+          echo PRIVATE_KEY=${{ secrets.PRIVATE_KEY }} >> .env
+          echo CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }} >> .env
       - name: "Index"
         run: "yarn tsc main.ts && node main.js"
