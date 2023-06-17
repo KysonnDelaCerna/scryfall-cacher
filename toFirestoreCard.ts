@@ -5,7 +5,9 @@ export default function toFirestoreCard(
   scryfallCard: IScryfallCard
 ): IFirestoreCard {
   const firestoreCard: IFirestoreCard = {
-    name: scryfallCard.name,
+    name: scryfallCard.name.startsWith("A-")
+      ? scryfallCard.name.replace("A-", "")
+      : scryfallCard.name,
     manaCost: scryfallCard.mana_cost ?? "",
     cmc: scryfallCard.cmc,
     typeLine: scryfallCard.type_line,
@@ -21,7 +23,9 @@ export default function toFirestoreCard(
     games: scryfallCard.games,
     set: scryfallCard.set,
     setName: scryfallCard.set_name,
-    collectorNumber: scryfallCard.collector_number,
+    collectorNumber: scryfallCard.collector_number.startsWith("A-")
+      ? scryfallCard.collector_number.replace("A-", "")
+      : scryfallCard.collector_number,
     rarity: scryfallCard.rarity,
   };
 
