@@ -1,8 +1,8 @@
 {
-  "name": "scryfall-indexer",
+  "name": "scryfall-cacher",
   "version": "1.0.0",
   "main": "main.ts",
-  "repository": "https://github.com/KysonnDelaCerna/scryfall-indexer",
+  "repository": "https://github.com/KysonnDelaCerna/scryfall-cacher",
   "author": "Kysonn Dela Cerna",
   "license": "MIT",
   "dependencies": {
@@ -17,6 +17,6 @@
   },
   "scripts": {
     "build": "yarn tsc main.ts",
-    "index": "yarn tsc main.ts && node main.js"
+    "cache": "yarn tsc main.ts && node main.js"
   }
 }

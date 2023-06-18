@@ -2,18 +2,14 @@ name: Scheduled Index
 
 on:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "42 0 * * *"
   workflow_dispatch:
 
 jobs:
-  build-and-index:
+  build-and-cache:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Set Timezone"
-        uses: "szenius/set-timezone@v1.2"
-        with:
-          timezoneLinux: "Asia/Singapore"
       - name: "Checkout"
         uses: "actions/checkout@v3"
       - name: "Install Dependencies"
@@ -26,5 +22,5 @@ jobs:
           echo PROJECT_ID="${{ secrets.PROJECT_ID }}" >> .env
           echo PRIVATE_KEY="${{ secrets.PRIVATE_KEY }}" >> .env
           echo CLIENT_EMAIL="${{ secrets.CLIENT_EMAIL }}" >> .env
-      - name: "Index"
+      - name: "cache"
         run: "yarn tsc main.ts && node main.js"
