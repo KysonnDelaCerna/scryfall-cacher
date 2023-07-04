@@ -7,4 +7,3 @@ toFirestoreCard.js
 firestore.js
 yarn-error.log
 .env
-yarn.lock
