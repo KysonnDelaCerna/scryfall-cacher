@@ -44,8 +44,8 @@ export default interface IScryfallCard {
     penny: string;
     commander: string;
     oathbreaker: string;
+    standardbrawl: string;
     brawl: string;
-    historicbrawl: string;
     alchemy: string;
     paupercommander: string;
     duel: string;

@@ -21,13 +21,15 @@ const run = async () => {
   while (has_more && next_page) {
     await axios
       .get(next_page)
-      .then((response: AxiosResponse<IScryfallResponse>) => {
+      .then(async (response: AxiosResponse<IScryfallResponse>) => {
         for (const card of response.data.data) {
           cards.push(toFirestoreCard(card));
         }
 
         next_page = response.data.next_page;
         has_more = response.data.has_more;
+
+        await new Promise((r) => setTimeout(r, 10000));
       })
       .catch((error) => {
         console.log(error);

@@ -9,24 +9,24 @@ export default function toFirestoreCard(
       ? scryfallCard.name.replace("A-", "")
       : scryfallCard.name,
     manaCost: scryfallCard.mana_cost ?? "",
-    cmc: scryfallCard.cmc,
-    typeLine: scryfallCard.type_line,
+    cmc: scryfallCard.cmc ?? 0,
+    typeLine: scryfallCard.type_line ?? "",
     colors: scryfallCard.colors ?? [],
-    colorIdentity: scryfallCard.color_identity,
+    colorIdentity: scryfallCard.color_identity ?? [],
     legalities: {
-      standard: scryfallCard.legalities.standard,
-      historic: scryfallCard.legalities.historic,
-      brawl: scryfallCard.legalities.brawl,
-      historicBrawl: scryfallCard.legalities.historicbrawl,
-      alchemy: scryfallCard.legalities.historic,
+      standard: scryfallCard.legalities?.standard ?? "not_legal",
+      historic: scryfallCard.legalities?.historic ?? "not_legal",
+      brawl: scryfallCard.legalities?.standardbrawl ?? "not_legal",
+      historicBrawl: scryfallCard.legalities?.brawl ?? "not_legal",
+      alchemy: scryfallCard.legalities?.alchemy ?? "not_legal",
     },
-    games: scryfallCard.games,
-    set: scryfallCard.set,
-    setName: scryfallCard.set_name,
+    games: scryfallCard.games ?? [],
+    set: scryfallCard.set ?? "",
+    setName: scryfallCard.set_name ?? "",
     collectorNumber: scryfallCard.collector_number.startsWith("A-")
       ? scryfallCard.collector_number.replace("A-", "")
       : scryfallCard.collector_number,
-    rarity: scryfallCard.rarity,
+    rarity: scryfallCard.rarity ?? "",
   };
 
   return firestoreCard;
